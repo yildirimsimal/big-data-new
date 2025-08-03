@@ -5,7 +5,7 @@ from pyspark.sql.functions import col, to_date, round, date_format
 spark = SparkSession.builder.appName("BigDataProject").getOrCreate()
 
 # Read Parquet data from GCS
-df = spark.read.parquet("gs://bero_assignment_bucket/cleaned_data/")
+df = spark.read.parquet("gs://simal_assignment_bucket/cleaned_data/")
 
 # Create temporary view
 df.createOrReplaceTempView("stock_data")
@@ -37,3 +37,4 @@ FROM stock_data
 GROUP BY Month
 ORDER BY Month
 """).show(10)
+
